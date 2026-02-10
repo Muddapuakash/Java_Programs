@@ -1,4 +1,4 @@
-package com.java.Fundamentals.Day1;
+package com.java.Fundamentals;
 
 import java.util.Scanner;
 
