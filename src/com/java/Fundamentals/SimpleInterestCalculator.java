@@ -14,9 +14,6 @@ import java.util.Scanner;
  * - Multiple numeric inputs
  * - Financial calculations
  * - Professional output formatting
- * 
- * @author Codegnan IT Solutions
- * @version 1.0
  */
 public class SimpleInterestCalculator {
     
