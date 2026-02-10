@@ -13,9 +13,6 @@ import java.util.Scanner;
  * - Integer input
  * - Constants
  * - Basic arithmetic
- * 
- * @author Codegnan IT Solutions
- * @version 1.0
  */
 public class AgeCalculator {
     
