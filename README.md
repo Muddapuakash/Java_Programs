@@ -4,7 +4,7 @@
 This repository tracks my progress learning Java Full Stack Development with Codegnan IT Solutions.
 
 ## Package Structure
-All programs use `com.codegnan` as the base package following industry standards.
+All programs use `com.java.Fundamentals` as the base package following industry standards.
 
 ## Week 1: Java Basics
 - Day 1: Environment Setup, I/O Operations, Git Basics
