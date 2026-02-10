@@ -21,7 +21,7 @@ All programs use `com.codegnan` as the base package following industry standards
 cd src
 
 # Compile
-javac com/codegnan/day1/HelloWorld.java
+javac com/java/Fundamentals/HelloWorld.java
 
 # Run
 java com.codegnan.day1.HelloWorld
