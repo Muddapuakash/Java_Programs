@@ -1,17 +1,27 @@
 package com.java.fundamentals;
-
+import java.util.Scanner;
 public class ReverseNumber {
 
 	public static void main(String[] args) {
-		int N = 1532;
-		int Rev=0;
-		while(N>0) {
-			int LastDigit = N%10;
-			Rev =Rev * 10+LastDigit;
-			N=N/10;
-			
-		}
-		System.out.println(Rev);
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+        
+        int reversed = 0;
+        int temp = number;
+        
+        while (temp > 0) {
+            int digit = temp % 10;
+            reversed = reversed * 10 + digit;
+            temp = temp / 10;
+        }
+        
+        System.out.println("Original: " + number);
+        System.out.println("Reversed: " + reversed);
+        
+        scanner.close();
+
 
 	}
 
