@@ -1,117 +1,141 @@
 package com.java.applications;
+
 import java.util.Scanner;
 
 public class StudentGradingSystem {
 
-    // Method to input student data
-    public static void inputStudentData(String[] names, int[][] marks, Scanner sc) {
-        for (int i = 0; i < names.length; i++) {
-            System.out.println("\nEnter details for Student " + (i + 1));
+    // This method collects all student names and their subject scores
+    public static void collectStudentInfo(String[] studentNames, int[][] subjectScores, Scanner input) {
 
-            System.out.print("Enter Name: ");
-            names[i] = sc.next();
+        for (int student = 0; student < studentNames.length; student++) {
 
-            for (int j = 0; j < 3; j++) {
-                System.out.print("Enter marks for Subject " + (j + 1) + ": ");
-                marks[i][j] = sc.nextInt();
+            System.out.println("\nEnter information for Student " + (student + 1));
+
+            System.out.print("Student Name: ");
+            studentNames[student] = input.next();
+
+            // Taking marks for 3 subjects
+            for (int subject = 0; subject < 3; subject++) {
+                System.out.print("Marks for Subject " + (subject + 1) + ": ");
+                subjectScores[student][subject] = input.nextInt();
             }
         }
     }
 
-    // Method to calculate grade
-    public static char calculateGrade(double percentage) {
-        if (percentage >= 90)
+    // This method decides grade based on percentage
+    public static char assignGrade(double percentValue) {
+
+        if (percentValue >= 90) {
             return 'A';
-        else if (percentage >= 80)
+        } 
+        else if (percentValue >= 80) {
             return 'B';
-        else if (percentage >= 70)
+        } 
+        else if (percentValue >= 70) {
             return 'C';
-        else if (percentage >= 60)
+        } 
+        else if (percentValue >= 60) {
             return 'D';
-        else
+        } 
+        else {
             return 'F';
+        }
     }
 
-    // Method to find topper index
-    public static int findTopper(double[] percentages) {
-        int topperIndex = 0;
-        for (int i = 1; i < percentages.length; i++) {
-            if (percentages[i] > percentages[topperIndex]) {
-                topperIndex = i;
+    // This method finds which student scored highest percentage
+    public static int getTopStudentIndex(double[] percentArray) {
+
+        int highestIndex = 0;
+
+        for (int i = 1; i < percentArray.length; i++) {
+            if (percentArray[i] > percentArray[highestIndex]) {
+                highestIndex = i;
             }
         }
-        return topperIndex;
+
+        return highestIndex;
     }
 
-    // Method to calculate class average
-    public static double calculateClassAverage(double[] percentages) {
-        double sum = 0;
-        for (double p : percentages) {
-            sum += p;
+    // This method calculates overall class average percentage
+    public static double getOverallAverage(double[] percentArray) {
+
+        double totalPercent = 0;
+
+        for (int i = 0; i < percentArray.length; i++) {
+            totalPercent += percentArray[i];
         }
-        return sum / percentages.length;
+
+        return totalPercent / percentArray.length;
     }
 
-    // Method to display results
-    public static void displayResults(String[] names, int[] totals,
-                                      double[] percentages, char[] grades,
-                                      int topperIndex, double classAverage) {
+    // This method prints complete performance report
+    public static void printReport(String[] studentNames,
+                                   int[] totalMarks,
+                                   double[] percentValues,
+                                   char[] gradeList,
+                                   int topperPosition,
+                                   double classAvg) {
 
-        System.out.println("\n========== CLASS PERFORMANCE REPORT ==========");
+        System.out.println("\n=========== STUDENT PERFORMANCE SUMMARY ===========");
         System.out.printf("%-15s %-15s %-15s %-10s\n",
-                "Student Name", "Total Marks", "Percentage", "Grade");
+                "Name", "Total", "Percentage", "Grade");
 
-        for (int i = 0; i < names.length; i++) {
+        for (int i = 0; i < studentNames.length; i++) {
+
             System.out.printf("%-15s %-15d %-15.2f %-10c",
-                    names[i], totals[i], percentages[i], grades[i]);
+                    studentNames[i],
+                    totalMarks[i],
+                    percentValues[i],
+                    gradeList[i]);
 
-            if (i == topperIndex) {
-                System.out.print(" 🏆");
+            // If this student is topper, show trophy symbol
+            if (i == topperPosition) {
+                System.out.print("?");
             }
 
             System.out.println();
         }
 
-        System.out.println("----------------------------------------------");
-        System.out.printf("Class Average Percentage: %.2f%%\n", classAverage);
-        System.out.println("==============================================");
+        System.out.println("---------------------------------------------------");
+        System.out.printf("Class Average: %.2f%%\n", classAvg);
+        System.out.println("===================================================");
     }
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter number of students: ");
-        int n = sc.nextInt();
+        System.out.print("Enter total number of students: ");
+        int studentCount = input.nextInt();
 
-        // Arrays to store student data
-        String[] names = new String[n];
-        int[][] marks = new int[n][3];
-        int[] totals = new int[n];
-        double[] percentages = new double[n];
-        char[] grades = new char[n];
+        // Creating arrays to store required data
+        String[] studentNames = new String[studentCount];
+        int[][] subjectScores = new int[studentCount][3];
+        int[] totalMarks = new int[studentCount];
+        double[] percentValues = new double[studentCount];
+        char[] gradeList = new char[studentCount];
 
-        // Input data
-        inputStudentData(names, marks, sc);
+        // Step 1: Collect student details
+        collectStudentInfo(studentNames, subjectScores, input);
 
-        // Calculate totals, percentages and grades
-        for (int i = 0; i < n; i++) {
-            totals[i] = marks[i][0] + marks[i][1] + marks[i][2];
-            percentages[i] = totals[i] / 3.0;
-            grades[i] = calculateGrade(percentages[i]);
+        // Step 2: Calculate totals, percentages and grades
+        for (int i = 0; i < studentCount; i++) {
+
+            totalMarks[i] = subjectScores[i][0] + subjectScores[i][1] + subjectScores[i][2];
+            percentValues[i] = totalMarks[i] / 3.0;
+            gradeList[i] = assignGrade(percentValues[i]);
         }
 
-        // Find topper
-        int topperIndex = findTopper(percentages);
+        // Step 3: Find topper
+        int topperPosition = getTopStudentIndex(percentValues);
 
-        // Calculate class average
-        double classAverage = calculateClassAverage(percentages);
+        // Step 4: Calculate class average
+        double classAvg = getOverallAverage(percentValues);
 
-        // Display report
-        displayResults(names, totals, percentages, grades, topperIndex, classAverage);
+        // Step 5: Print final report
+        printReport(studentNames, totalMarks, percentValues,
+                gradeList, topperPosition, classAvg);
 
-        // Close scanner
-        sc.close();
+        input.close();
     }
 }
-
