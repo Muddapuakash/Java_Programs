@@ -1,57 +1,52 @@
 package com.java.opps;
 
 public class Student {
-	//data members
-       private String studentName;
-       private int studentAge;
-       boolean isValid=true;
-       
-       
-       //default constructor
-       public Student() {
-    	   System.out.println("Deafult Constructor");
-       }
-       
-       //parametrized
-       public Student(String studentName,int age) {
-    	   this.setStudentName(studentName);
-    	   
-    	   if(age > 0 && age <= 100) {
-				this.studentAge=age;
-			}else {
-				System.out.println("Enter valid Age between 1 to 100 to student "+studentName);
-				isValid=false;
-			}
-    	   
-       }
-       
-        // getter Method
-	    public String getStudentName() {
-		    return studentName;
-	   }
 
-		public int getStudentAge() {
-			return studentAge;
-		}
-		
-		//setter method
-		 public void setStudentName(String Name) {
-		        this.studentName = Name;
-	   }
+    // data Members 
+    private String studentName;
+    private int studentAge;
 
-		public void setStudentAge(int Age) {
-			this.studentAge=Age;
-		}
-		
-		
-		//display method
-		public void displayStudentDetails() {
-	        if (isValid) {
-	            System.out.println("Student Name: " + studentName);
-	            System.out.println("Student Age: " + studentAge);
-	        } else {
-	            System.out.println("Student object is not created due to invalid age.");
-	        }
-	    }
+    // private Constructor
+    private Student(String studentName, int studentAge) {
+        this.studentName = studentName;
+        this.studentAge = studentAge;
+    }
+
+    // static Factory Method
+    public static Student createStudent(String name, int age) {
+        if (age > 0 && age <= 100) {
+            return new Student(name, age);
+        } else {
+            System.out.println("Object is not created due to invalid age.");
+            return null;
+        }
+    }
+
+    // getter Methods
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public int getStudentAge() {
+        return studentAge;
+    }
+
+    // setter Methods (Optional)
+    public void setStudentName(String name) {
+        this.studentName = name;
+    }
+
+    public void setStudentAge(int age) {
+        if (age > 0 && age <= 100) {
+            this.studentAge = age;
+        } else {
+            System.out.println("Invalid age. Age must be between 1 and 100.");
+        }
+    }
+
+    // Display method
+    public void displayStudentDetails() {
+        System.out.println("Student Name: " + studentName);
+        System.out.println("Student Age: " + studentAge);
+    }
 }
-
