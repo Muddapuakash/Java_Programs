@@ -1,40 +1,9 @@
-# Java Full Stack Development - Learning Journey
+Java Full Stack Development
 
-## About
-This repository tracks my progress learning Java Full Stack Development with Codegnan IT Solutions.
+This repository represents my structured journey in mastering Java Full Stack Development. It contains well-organized practice programs and implementation-based learning focused on building strong Core Java fundamentals.
 
-## Package Structure
-All programs use `com.java.Fundamentals` as the base package following industry standards.
+The codebase covers essential programming concepts including variables, data types, operators, control flow statements, methods, arrays, and object-oriented programming principles such as classes, objects, constructors, encapsulation, and inheritance.
 
-## Week 1: Java Basics
-- Day 1: Environment Setup, I/O Operations, Git Basics
-  - HelloWorld.java - First Java program
-  - PersonalBioApp.java - CLI biographical data collector
-- Day 2: Variables, Operators
-  - Calculator.java - Basic arithmetic operations
-- Day 3: Control Structures
-  - EligibilityChecker.java - Age-based eligibility
+Each program is written with clarity, proper structure, and industry-standard package organization to strengthen problem-solving skills and coding best practices.
 
-## How to Compile and Run
-```bash
-# Navigate to src directory
-cd src
-
-# Compile
-javac com/java/Fundamentals/HelloWorld.java
-
-# Run
-java com.codegnan.day1.HelloWorld
-
-
-### 3.11 Git Best Practices for Java Development
-
-**1. Commit Frequently**
-```bash
-# ✅ Good: Logical, small commits
-git commit -m "Add Scanner input handling"
-git commit -m "Fix buffer issue in age input"
-git commit -m "Add formatted output display"
-
-# ❌ Bad: One huge commit
-git commit -m "Completed entire PersonalBioApp"
+This repository will continue to evolve as I advance into more complex topics including polymorphism, abstraction, exception handling, collections, JDBC, and backend development technologies.
