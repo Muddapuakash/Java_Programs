@@ -13,7 +13,7 @@ public class ReverseArray {
 
         while (left < right) {
 
-            // Swap elements
+  
             int temp = arr[left];
             arr[left] = arr[right];
             arr[right] = temp;

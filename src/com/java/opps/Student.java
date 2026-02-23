@@ -31,18 +31,18 @@ public class Student {
         return studentAge;
     }
 
-//    // setter Methods (Optional)
-//    public void setStudentName(String name) {
-//        this.studentName = name;
-//    }
-//
-//    public void setStudentAge(int age) {
-//        if (age > 0 && age <= 100) {
-//            this.studentAge = age;
-//        } else {
-//            System.out.println("Invalid age. Age must be between 1 and 100.");
-//        }
-//    }
+    // setter Method
+    public void setStudentName(String name) {
+        this.studentName = name;
+    }
+
+    public void setStudentAge(int age) {
+        if (age > 0 && age <= 100) {
+            this.studentAge = age;
+        } else {
+            System.out.println("Invalid age. Age must be between 1 and 100.");
+        }
+    }
 
     // Display method
     public void displayStudentDetails() {
