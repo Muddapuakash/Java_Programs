@@ -1,7 +1,0 @@
-package com.threads;
-
-public class MyRunnable implements Runnable {
-
-	
-
-}
