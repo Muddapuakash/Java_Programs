@@ -1,0 +1,19 @@
+Constructore refernce
+
+Constructor refrence are u said to ref to  a constructor of  a class
+we can refer to the constructor of a class by using new keywoard
+
+eg. Myclass :: new
+
+Constructors refrence can be used when the constructor signature
+matches with method signature of functional interface
+
+
+-Instead ofwriting the lamabda like
+(name)->new MyClass(name)
+we just refer to the constructor
+we using
+MyClass::new
+
+when the methods of functional interface is invoked,the constructor will be automatically
+called.

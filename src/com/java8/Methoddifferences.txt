@@ -1,0 +1,23 @@
+Method Refernces:
+
+Method refrence is a feature supported in java 8
+ it uses an operator called double colon operator ::
+ lamabada expression helps us to write iniline implementation of funstionl interface method
+ 
+ method refrences is a shorthand form of lambda expression
+ method refrence just calss the existing method
+ for method refrence we do not pass the aruguments,they are passed automatically
+ 
+ 2 types of method refrences:
+  1.static method refrence
+  -when a functional interface method matches a static method 
+  siganatire we can use static method refernce
+  
+  syntax:
+  ClassName :: staticMethod
+  
+  2.Instance Method refrence:
+   instance method refrence is used to when a functional interface method matches with non-static
+    method of a given object
+    
+    Synatax:

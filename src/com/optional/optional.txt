@@ -1,0 +1,43 @@
+Optional is a container object introduced in Java 8 (in java.util package) that is used to hold a value that may or may not be present.
+
+👉 It helps avoid NullPointerException (NPE) by providing a safe way to handle null values.
+
+🔹 Why Optional is used?
+
+Before Java 8:
+
+String name = null;
+if (name != null) {
+    System.out.println(name.length());
+}
+
+With Optional:
+
+Optional<String> name = Optional.ofNullable(null);
+System.out.println(name.orElse("Default Name"));
+
+✅ No direct null checks
+✅ Cleaner and safer code
+
+🔹 How to Create Optional
+Optional<String> opt1 = Optional.of("Akash");        // value must not be null
+Optional<String> opt2 = Optional.ofNullable(null);  // can be null
+Optional<String> opt3 = Optional.empty();           // empty optional
+🔹 Common Methods
+Method	Description
+->isPresent()	Checks if value exists
+->get()	Returns value (unsafe if empty)
+->orElse(value)	Returns default if empty
+->orElseGet()	Returns value from function
+->orElseThrow()	Throws exception if empty
+->ifPresent()	Executes code if value exists
+🔹 Example
+Optional<String> name = Optional.ofNullable("Akash");
+
+name.ifPresent(n -> System.out.println(n));
+System.out.println(name.orElse("No Name"));
+🔹 Key Advantage
+
+👉 Avoids null checks everywhere
+👉 Encourages functional programming style
+👉 Makes code more readable and robust
