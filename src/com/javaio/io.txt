@@ -1,0 +1,117 @@
+java.io
+
+
+io streams:
+-In java io streams represents stream of input and output.
+
+Stream: Sequance of bytes or characters
+
+-when a apllication reads a stream of data a file or any datasource,
+it is called input stream.
+
+-when an apllication sends/writes a stream of sata a file or any datasource,
+it is called output stream.
+
+there are two diffrent types of strings 
+
+1)Character Streams:
+ -Reads or writes the character data ,chaarcater by character.
+ -Character stream classes are used to read and write character data
+ -
+ 
+ File Class:
+ -file class has 2 different constructors:
+ File(String name):
+ creates a file object with the given name in argument
+ 
+ File file=new File("filename.txt");
+ File file1=new File("c:\\JFS51\\file1.txt");
+ 
+ Constrctuor2:
+ File(dir,"filename");
+ this constructor is usded to create a file in the specificed directory
+ first agument is the name of the directory,second argument is the name of the file.
+ 
+ Methods:
+ exists():returns true if the filr/directory exists
+ createNewFile():creates a empty filr,rteurns true if created ,false if already exists
+ mkdir():to create a dierctory
+ isDirectory:returns true if filr object refrence points to the directory
+ isFile():to check if it is a filr or not
+ list():returns String[] of the filr/diretory names
+ length():returns the size of a files in byte
+ delete():deletes the file or empty dierctory
+ 
+ 
+ FileWriter:
+ 
+ -filewriter class alows you t0 write the data to a file.
+ 
+ -it is manaully extends an abstarct class a writer
+ -it has multiple overloaded constructoes
+ FileWriter(String filename);
+ FileWriter(String filename,boolean append);
+ FileWriter(File f);
+ FileWriter(File file,boolean append);
+ 
+ try with resource(java 7
+try with resources allows you to declare resources like files,stream,database connections
+inisde the try statement so they are automatically closed after use;
+
+--it eliminates the use for a finally block to close resources
+--try with resources works with any object that implemnets AutoCloseable interface 
+
+sytax:
+
+try(FileWriter writer=new FileWriter("out.txt"){
+//Statemenrts
+
+}catch(Exception e){
+e.printStackTrace();}
+
+AutoClosable interface{
+AutoClosable interface enables automatic resource management.
+-its in java.lang
+-contains a single method close()
+
+Any class that implements AutoClosable can be used in 
+try-with-resources
+eg:
+FileWriter,FileReder,BufferedWriter,BufferedReader,Connection etc.
+
+-when you use try-with-resources ,JVM will Automatically call close();
+-even if exception occurs,resources are still safely closed.
+
+
+2)FileReader class:
+FileReader class is present in java.io
+-Used for reading a file
+-Reads the data character by character by character
+
+Constrcutors:
+FileReader(String filename);
+FileReader(File file);
+
+read()-reads single character and returns the int value(ascii eqivalent decreasing)
+       -or it returns -1 it reaches the end of the file. 
+       
+       
+BufferWriter and BufferReader classes:
+-these classes adds a buffer(Temporrary memory) to speed up the reading andwriting.
+-buffer is a temporary memory area used to store data while reading or writing
+-All the characters are first read/written to a buffer and then all characetre are
+ are read/written at a time instead of one characer a time.
+ 
+ 
+-In BufferReader/BufferWriter,the buffer improves the performnace by reducing direct 
+ direct I/0 calls.
+-read/write happens in chuncks instead of repeatedly accessing the file.
+
+BufferedReader Class:
+-BufferedReader uses internal buffer
+-it read a chunck of data from the file intp memory once.
+-when call realine() or read() method the data is retrived from the buffer in memory
+-data is retrived until the buffer is empty.
+-readLinr() method retunrs null once it reaches end of the file.
+ 
+2)Byte streams:
